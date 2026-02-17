@@ -1,6 +1,10 @@
 import fs from "node:fs";
 import path from "node:path";
 import { CURRENT_SESSION_VERSION, SessionManager } from "@mariozechner/pi-coding-agent";
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+let AeonMemoryPlugin: any = null;
+// @ts-ignore: Optional dependency for ultra-low-latency memory
+import("aeon-memory").then(m => { AeonMemoryPlugin = m.AeonMemory; }).catch(() => {});
 import { emitSessionTranscriptUpdate } from "../../sessions/transcript-events.js";
 import { resolveDefaultSessionStorePath, resolveSessionFilePath } from "./paths.js";
 import { loadSessionStore, updateSessionStore } from "./store.js";
@@ -122,12 +126,13 @@ export async function appendAssistantMessageToSessionTranscript(params: {
   await ensureSessionHeader({ sessionFile, sessionId: entry.sessionId });
 
   const sessionManager = SessionManager.open(sessionFile);
-  sessionManager.appendMessage({
-    role: "assistant",
-    content: [{ type: "text", text: mirrorText }],
-    api: "openai-responses",
-    provider: "openclaw",
-    model: "delivery-mirror",
+
+  const mirrorMessage = {
+    role: "assistant" as const,
+    content: [{ type: "text" as const, text: mirrorText }],
+    api: "openai-responses" as const,
+    provider: "openclaw" as const,
+    model: "delivery-mirror" as const,
     usage: {
       input: 0,
       output: 0,
@@ -142,9 +147,20 @@ export async function appendAssistantMessageToSessionTranscript(params: {
         total: 0,
       },
     },
-    stopReason: "stop",
+    stopReason: "stop" as const,
     timestamp: Date.now(),
-  });
+  };
+
+  if (AeonMemoryPlugin) {
+    const aeon = AeonMemoryPlugin.getInstance();
+    if (aeon && aeon.isAvailable()) {
+      aeon.saveTurn(entry.sessionId, mirrorMessage);
+    } else {
+      sessionManager.appendMessage(mirrorMessage);
+    }
+  } else {
+    sessionManager.appendMessage(mirrorMessage);
+  }
 
   if (!entry.sessionFile || entry.sessionFile !== sessionFile) {
     await updateSessionStore(

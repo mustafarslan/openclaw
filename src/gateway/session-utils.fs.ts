@@ -6,6 +6,10 @@ import {
   resolveSessionTranscriptPath,
   resolveSessionTranscriptPathInDir,
 } from "../config/sessions.js";
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+let AeonMemoryPlugin: any = null;
+// @ts-ignore: Optional dependency for ultra-low-latency memory
+import("aeon-memory").then(m => { AeonMemoryPlugin = m.AeonMemory; }).catch(() => {});
 import { resolveRequiredHomeDir } from "../infra/home-dir.js";
 import { hasInterSessionUserProvenance } from "../sessions/input-provenance.js";
 import { extractToolCallNames, hasToolCall } from "../utils/transcript-tools.js";
@@ -71,6 +75,18 @@ export function readSessionMessages(
   storePath: string | undefined,
   sessionFile?: string,
 ): unknown[] {
+  // ── AEON MEMORY: Optional read path (aeon-memory plugin) ──
+  if (AeonMemoryPlugin) {
+    const aeon = AeonMemoryPlugin.getInstance();
+    if (aeon && aeon.isAvailable()) {
+      const aeonMessages = aeon.getTranscript(sessionId);
+      if (aeonMessages.length > 0) {
+        return aeonMessages;
+      }
+    }
+  }
+
+  // ── LEGACY JSONL FALLBACK (for pre-Aeon sessions) ──
   const candidates = resolveSessionTranscriptCandidates(sessionId, storePath, sessionFile);
 
   const filePath = candidates.find((p) => fs.existsSync(p));

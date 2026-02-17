@@ -4,6 +4,7 @@ import type { AgentMessage } from "@mariozechner/pi-agent-core";
 import type { ImageContent } from "@mariozechner/pi-ai";
 import { streamSimple } from "@mariozechner/pi-ai";
 import { createAgentSession, SessionManager, SettingsManager } from "@mariozechner/pi-coding-agent";
+
 import { resolveHeartbeatPrompt } from "../../../auto-reply/heartbeat.js";
 import { resolveChannelCapabilities } from "../../../config/channel-capabilities.js";
 import { getMachineDisplayName } from "../../../infra/machine-name.js";
@@ -327,7 +328,19 @@ export async function runEmbeddedAttempt(
             params.requireExplicitMessageTarget ?? isSubagentSessionKey(params.sessionKey),
           disableMessageTool: params.disableMessageTool,
         });
-    const tools = sanitizeToolsForGoogle({ tools: toolsRaw, provider: params.provider });
+    let tools = sanitizeToolsForGoogle({ tools: toolsRaw, provider: params.provider });
+    // ── AEON ATLAS: Optional semantic tool filter (aeon-memory plugin) ──
+    try {
+      // @ts-ignore: Optional dependency for ultra-low-latency memory
+      const { AeonMemory } = await import("aeon-memory");
+      const aeon = AeonMemory.getInstance();
+      if (aeon && aeon.isAvailable() && params.prompt) {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        tools = (await aeon.filterToolsSemantic(params.prompt, tools)) as any;
+      }
+    } catch {
+      // aeon-memory not installed — standard OpenClaw engine continues
+    }
     logToolSchemasForGoogle({ tools, provider: params.provider });
 
     const machineName = await getMachineDisplayName();

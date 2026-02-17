@@ -5,6 +5,10 @@ import type {
   PluginHookBeforeMessageWriteEvent,
   PluginHookBeforeMessageWriteResult,
 } from "../plugins/types.js";
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+let AeonMemoryPlugin: any = null;
+// @ts-ignore: Optional dependency for ultra-low-latency memory
+import("aeon-memory").then(m => { AeonMemoryPlugin = m.AeonMemory; }).catch(() => {});
 import { emitSessionTranscriptUpdate } from "../sessions/transcript-events.js";
 import { HARD_MAX_TOOL_RESULT_CHARS } from "./pi-embedded-runner/tool-result-truncation.js";
 import { makeMissingToolResult, sanitizeToolCallInputs } from "./session-transcript-repair.js";
@@ -160,7 +164,17 @@ export function installSessionToolResultGuard(
           }),
         );
         if (flushed) {
-          originalAppend(flushed as never);
+          if (AeonMemoryPlugin) {
+            const aeon = AeonMemoryPlugin.getInstance();
+            if (aeon && aeon.isAvailable()) {
+              const sid = (sessionManager as { getSessionId?: () => string }).getSessionId?.() ?? "unknown";
+              aeon.saveTurn(sid, flushed);
+            } else {
+              originalAppend(flushed as never);
+            }
+          } else {
+            originalAppend(flushed as never);
+          }
         }
       }
     }
@@ -168,8 +182,8 @@ export function installSessionToolResultGuard(
   };
 
   const guardedAppend = (message: AgentMessage) => {
-    let nextMessage = message;
     const role = (message as { role?: unknown }).role;
+    let nextMessage = message;
     if (role === "assistant") {
       const sanitized = sanitizeToolCallInputs([message]);
       if (sanitized.length === 0) {
@@ -201,6 +215,14 @@ export function installSessionToolResultGuard(
       if (!persisted) {
         return undefined;
       }
+      if (AeonMemoryPlugin) {
+        const aeon = AeonMemoryPlugin.getInstance();
+        if (aeon && aeon.isAvailable()) {
+          const sid = (sessionManager as { getSessionId?: () => string }).getSessionId?.() ?? "unknown";
+          aeon.saveTurn(sid, persisted);
+          return `aeon-${Date.now()}`;
+        }
+      }
       return originalAppend(persisted as never);
     }
 
@@ -224,7 +246,19 @@ export function installSessionToolResultGuard(
     if (!finalMessage) {
       return undefined;
     }
-    const result = originalAppend(finalMessage as never);
+    let result: string;
+    if (AeonMemoryPlugin) {
+      const aeon = AeonMemoryPlugin.getInstance();
+      if (aeon && aeon.isAvailable()) {
+        const sid = (sessionManager as { getSessionId?: () => string }).getSessionId?.() ?? "unknown";
+        aeon.saveTurn(sid, finalMessage);
+        result = `aeon-${Date.now()}`;
+      } else {
+        result = originalAppend(finalMessage as never) as unknown as string;
+      }
+    } else {
+      result = originalAppend(finalMessage as never) as unknown as string;
+    }
 
     const sessionFile = (
       sessionManager as { getSessionFile?: () => string | null }
@@ -243,7 +277,7 @@ export function installSessionToolResultGuard(
   };
 
   // Monkey-patch appendMessage with our guarded version.
-  sessionManager.appendMessage = guardedAppend as SessionManager["appendMessage"];
+  sessionManager.appendMessage = guardedAppend as unknown as SessionManager["appendMessage"];
 
   return {
     flushPendingToolResults,
