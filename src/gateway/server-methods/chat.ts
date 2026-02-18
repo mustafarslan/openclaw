@@ -4,7 +4,17 @@ import { CURRENT_SESSION_VERSION, SessionManager } from "@mariozechner/pi-coding
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 let AeonMemoryPlugin: any = null;
 // @ts-ignore: Optional dependency for ultra-low-latency memory
-import("aeon-memory").then(m => { AeonMemoryPlugin = m.AeonMemory; }).catch(e => console.error("🚨 AEON LOAD ERROR:", e));
+import("aeon-memory")
+  .then((m) => {
+    AeonMemoryPlugin = m.AeonMemory;
+    const inst = AeonMemoryPlugin?.getInstance?.();
+    if (inst?.isAvailable?.()) {
+      console.log("[aeon] C++ kernel loaded and available (chat.ts)");
+    } else {
+      console.warn("[aeon] module loaded but kernel unavailable (chat.ts)");
+    }
+  })
+  .catch((e) => console.error("🚨 AEON LOAD ERROR (chat.ts):", e));
 import { resolveSessionAgentId } from "../../agents/agent-scope.js";
 import { resolveThinkingDefault } from "../../agents/model-selection.js";
 import { resolveAgentTimeoutMs } from "../../agents/timeout.js";
