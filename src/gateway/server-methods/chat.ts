@@ -4,7 +4,7 @@ import { CURRENT_SESSION_VERSION, SessionManager } from "@mariozechner/pi-coding
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 let AeonMemoryPlugin: any = null;
 // @ts-ignore: Optional dependency for ultra-low-latency memory
-import("aeon-memory").then(m => { AeonMemoryPlugin = m.AeonMemory; }).catch(() => {});
+import("aeon-memory").then(m => { AeonMemoryPlugin = m.AeonMemory; }).catch(e => console.error("🚨 AEON LOAD ERROR:", e));
 import { resolveSessionAgentId } from "../../agents/agent-scope.js";
 import { resolveThinkingDefault } from "../../agents/model-selection.js";
 import { resolveAgentTimeoutMs } from "../../agents/timeout.js";
