@@ -765,7 +765,7 @@ const RELEVANT_TOOL = {
   description:
     "Fetch the raw HTML content of a GitHub page or URL. " +
     "Supports fetching repository pages, user profiles, and raw file contents from github.com. " +
-    "Web sitelerinden HTML içeriği getirir, github.com sayfalarını ve URL adreslerini indirir.",
+    "GitHub sayfalarından ve URL adreslerinden HTML içeriğini getir, indir ve oku.",
 };
 
 const IRRELEVANT_NAMES = [
@@ -836,12 +836,13 @@ const atlasTmpDir = path.join(os.tmpdir(), `aeon-atlas-e2e-${Date.now()}`);
 fs.mkdirSync(atlasTmpDir, { recursive: true });
 process.env.AEON_MEMORY_HOME = atlasTmpDir;
 
-// Force a fresh AeonMemory singleton by resetting the module-level state.
-// We re-import to pick up the new AEON_MEMORY_HOME.
+// Force a fresh AeonMemory instance by clearing the v1.1.0 Named Registry.
+// v1.1.0 replaced the singleton pattern with a static `registry` Map.
+// We must closeAll() existing C++ instances before creating a new one
+// that points at the fresh AEON_MEMORY_HOME.
 const freshMod = await import("aeon-memory");
 const FreshAeonMemory = freshMod.AeonMemory;
-// Reset singleton so getInstance() re-initializes with new home.
-(FreshAeonMemory as any).instance = null;
+FreshAeonMemory.closeAll();
 const aeonAtlas = FreshAeonMemory.getInstance();
 
 console.log(`  Indexing ${mockTools.length} tools + running cold query...`);
