@@ -330,20 +330,30 @@ export async function runEmbeddedAttempt(
         });
     let tools = sanitizeToolsForGoogle({ tools: toolsRaw, provider: params.provider });
     // ── AEON ATLAS: Optional semantic tool filter (aeon-memory plugin) ──
+    // On failure, `tools` is guaranteed to remain unmodified (snapshot restore).
     try {
       // @ts-ignore: Optional dependency for ultra-low-latency memory
       const { AeonMemory } = await import("aeon-memory");
       const aeon = AeonMemory.getInstance();
       if (aeon && aeon.isAvailable() && params.prompt) {
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        tools = (await aeon.filterToolsSemantic(params.prompt, tools)) as any;
+        const originalTools = tools;
+        try {
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          tools = (await aeon.filterToolsSemantic(params.prompt, tools)) as any;
+        } catch (filterErr) {
+          tools = originalTools; // Restore snapshot — pipeline continues with all tools
+          console.error(
+            "🚨 [AeonMemory] Semantic filter failed, falling back to all tools:",
+            filterErr,
+          );
+        }
       }
-    } catch (e: unknown) {
-      const code = e instanceof Error ? (e as NodeJS.ErrnoException).code : undefined;
+    } catch (importErr: unknown) {
+      const code =
+        importErr instanceof Error ? (importErr as NodeJS.ErrnoException).code : undefined;
       if (code !== "ERR_MODULE_NOT_FOUND" && code !== "MODULE_NOT_FOUND") {
-        console.error("🚨 [AeonMemory] Semantic filter failed, falling back to all tools:", e);
+        console.error("🚨 [AeonMemory] Import failed:", importErr);
       }
-      // tools remains unmodified, pipeline continues safely
     }
     logToolSchemasForGoogle({ tools, provider: params.provider });
 
