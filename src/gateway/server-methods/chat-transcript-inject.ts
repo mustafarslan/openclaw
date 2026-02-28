@@ -17,17 +17,7 @@ export type GatewayInjectedTranscriptAppendResult = {
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 let AeonMemoryPlugin: any = null;
-// @ts-ignore: Optional dependency for ultra-low-latency memory
-import("aeon-memory")
-  .then((m) => {
-    AeonMemoryPlugin = m.AeonMemory;
-  })
-  .catch((e: unknown) => {
-    const code = e instanceof Error ? (e as NodeJS.ErrnoException).code : undefined;
-    if (code !== "ERR_MODULE_NOT_FOUND" && code !== "MODULE_NOT_FOUND") {
-      console.error("🚨 [AeonMemory] Load failed:", e);
-    }
-  });
+let aeonLoadAttempted = false;
 
 export function appendInjectedAssistantMessageToTranscript(params: {
   transcriptPath: string;
@@ -84,11 +74,37 @@ export function appendInjectedAssistantMessageToTranscript(params: {
     const sessionManager = SessionManager.open(params.transcriptPath);
     let messageId: string;
 
-    if (AeonMemoryPlugin && params.sessionId) {
-      const aeon = AeonMemoryPlugin.getInstance();
-      if (aeon && aeon.isAvailable()) {
-        aeon.saveTurn(params.sessionId, messageBody);
-        messageId = `aeon-${params.sessionId}-${now}`;
+    if (params.sessionId) {
+      if (!aeonLoadAttempted) {
+        aeonLoadAttempted = true;
+        // @ts-ignore: Optional dependency for ultra-low-latency memory
+        import("aeon-memory")
+          .then((m) => {
+            AeonMemoryPlugin = m.AeonMemory;
+            try {
+              const aeon = AeonMemoryPlugin.getInstance("main");
+              if (aeon && aeon.isAvailable()) {
+                aeon.saveTurn(params.sessionId!, messageBody);
+              }
+            } catch (e) {
+              console.error("🚨 [AeonMemory] Failed to save deferred turn:", e);
+            }
+          })
+          .catch((e: unknown) => {
+            const code = e instanceof Error ? (e as NodeJS.ErrnoException).code : undefined;
+            if (code !== "ERR_MODULE_NOT_FOUND" && code !== "MODULE_NOT_FOUND") {
+              console.error("🚨 [AeonMemory] Load failed:", e);
+            }
+          });
+        messageId = sessionManager.appendMessage(messageBody);
+      } else if (AeonMemoryPlugin) {
+        const aeon = AeonMemoryPlugin.getInstance("main");
+        if (aeon && aeon.isAvailable()) {
+          aeon.saveTurn(params.sessionId, messageBody);
+          messageId = `aeon-${params.sessionId}-${now}`;
+        } else {
+          messageId = sessionManager.appendMessage(messageBody);
+        }
       } else {
         messageId = sessionManager.appendMessage(messageBody);
       }
