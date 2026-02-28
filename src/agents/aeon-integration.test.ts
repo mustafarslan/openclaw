@@ -10,23 +10,19 @@
  *      writes degrade gracefully to the legacy path.
  *   D) The `readSessionMessages` read path similarly falls back to JSONL
  *      when Aeon has no data for a given session.
+ *
+ * Since the production code now uses a shared `aeon-loader.ts` module (which
+ * calls `createRequire()` synchronously), we mock `../utils/aeon-loader.js`
+ * instead of mocking `aeon-memory` directly.
  */
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 
 // ─── Shared mock state ──────────────────────────────────────────────
-// These are "hoisted" so they exist BEFORE vi.mock factory runs.
 const mockSaveTurn = vi.fn();
 const mockGetTranscript = vi.fn().mockReturnValue([]);
-const mockIsAvailable = vi.fn().mockReturnValue(false);
 const mockGetInstance = vi.fn().mockReturnValue(null);
 
 // ─── Test A & C: installSessionToolResultGuard ──────────────────────
-//
-// The guard module uses a top-level dynamic import("aeon-memory") to cache
-// AeonMemoryPlugin. By controlling the vi.mock factory we can toggle between:
-//   • null (simulating package absent)
-//   • a fake class (simulating package present & available)
-//   • a fake class with isAvailable() → false (simulating degradation)
 
 describe("aeon-memory integration — installSessionToolResultGuard", () => {
   beforeEach(() => {
@@ -34,7 +30,6 @@ describe("aeon-memory integration — installSessionToolResultGuard", () => {
     vi.restoreAllMocks();
     mockSaveTurn.mockClear();
     mockGetTranscript.mockClear();
-    mockIsAvailable.mockClear().mockReturnValue(false);
     mockGetInstance.mockClear().mockReturnValue(null);
   });
 
@@ -45,10 +40,14 @@ describe("aeon-memory integration — installSessionToolResultGuard", () => {
   // ── Test A: Fallback mode — aeon-memory is NOT installed ──────────
   describe("fallback mode (plugin absent)", () => {
     beforeEach(() => {
-      // Mock aeon-memory to throw on import → AeonMemoryPlugin stays null
-      vi.doMock("aeon-memory", () => {
-        throw new Error("MODULE_NOT_FOUND");
-      });
+      // Mock the shared loader to return null (simulating package absent)
+      vi.doMock("../utils/aeon-loader.js", () => ({
+        ensureAeonLoaded: () => null,
+        getAeonPlugin: () => null,
+        loadAeonMemoryAsync: async () => {},
+        triggerAeonLoad: () => {},
+        _resetForTesting: () => {},
+      }));
     });
 
     it("persists messages via legacy SessionManager.appendMessage without errors", async () => {
@@ -77,9 +76,11 @@ describe("aeon-memory integration — installSessionToolResultGuard", () => {
       } as Parameters<typeof sm.appendMessage>[0]);
 
       // Both messages should have been persisted via the legacy path
-      const entries = sm.getEntries().filter((e) => e.type === "message");
+      const entries = sm.getEntries().filter((e: { type: string }) => e.type === "message");
       expect(entries).toHaveLength(2);
-      const roles = entries.map((e) => (e as { message: { role: string } }).message.role);
+      const roles = entries.map(
+        (e: { type: string }) => (e as unknown as { message: { role: string } }).message.role,
+      );
       expect(roles).toEqual(["assistant", "toolResult"]);
 
       // The original appendMessage must have been called (not Aeon)
@@ -102,9 +103,11 @@ describe("aeon-memory integration — installSessionToolResultGuard", () => {
       guard.flushPendingToolResults();
 
       // Should have assistant + synthetic toolResult, both via legacy
-      const entries = sm.getEntries().filter((e) => e.type === "message");
+      const entries = sm.getEntries().filter((e: { type: string }) => e.type === "message");
       expect(entries).toHaveLength(2);
-      const roles = entries.map((e) => (e as { message: { role: string } }).message.role);
+      const roles = entries.map(
+        (e: { type: string }) => (e as unknown as { message: { role: string } }).message.role,
+      );
       expect(roles).toEqual(["assistant", "toolResult"]);
     });
   });
@@ -116,13 +119,20 @@ describe("aeon-memory integration — installSessionToolResultGuard", () => {
         isAvailable: () => true,
         saveTurn: mockSaveTurn,
         getTranscript: mockGetTranscript,
+        getSessionId: () => "test-session",
       };
       mockGetInstance.mockReturnValue(fakeInstance);
 
-      vi.doMock("aeon-memory", () => ({
-        AeonMemory: {
-          getInstance: mockGetInstance,
-        },
+      const fakePlugin = {
+        getInstance: mockGetInstance,
+      };
+
+      vi.doMock("../utils/aeon-loader.js", () => ({
+        ensureAeonLoaded: () => fakePlugin,
+        getAeonPlugin: () => fakePlugin,
+        loadAeonMemoryAsync: async () => {},
+        triggerAeonLoad: () => {},
+        _resetForTesting: () => {},
       }));
     });
 
@@ -132,13 +142,7 @@ describe("aeon-memory integration — installSessionToolResultGuard", () => {
 
       const sm = SessionManager.inMemory();
 
-      // Spy BEFORE the guard patches appendMessage
-      const _originalEntries = () => sm.getEntries().filter((e) => e.type === "message");
-
       installSessionToolResultGuard(sm);
-
-      // Wait for the dynamic import() to resolve inside the module
-      await new Promise((r) => setTimeout(r, 50));
 
       // Append an assistant message (non-tool-call)
       sm.appendMessage({
@@ -161,8 +165,6 @@ describe("aeon-memory integration — installSessionToolResultGuard", () => {
 
       const sm = SessionManager.inMemory();
       installSessionToolResultGuard(sm);
-
-      await new Promise((r) => setTimeout(r, 50));
 
       sm.appendMessage({
         role: "assistant",
@@ -192,10 +194,16 @@ describe("aeon-memory integration — installSessionToolResultGuard", () => {
         getTranscript: mockGetTranscript,
       });
 
-      vi.doMock("aeon-memory", () => ({
-        AeonMemory: {
-          getInstance: mockGetInstance,
-        },
+      const fakePlugin = {
+        getInstance: mockGetInstance,
+      };
+
+      vi.doMock("../utils/aeon-loader.js", () => ({
+        ensureAeonLoaded: () => fakePlugin,
+        getAeonPlugin: () => fakePlugin,
+        loadAeonMemoryAsync: async () => {},
+        triggerAeonLoad: () => {},
+        _resetForTesting: () => {},
       }));
     });
 
@@ -205,8 +213,6 @@ describe("aeon-memory integration — installSessionToolResultGuard", () => {
 
       const sm = SessionManager.inMemory();
       installSessionToolResultGuard(sm);
-
-      await new Promise((r) => setTimeout(r, 50));
 
       sm.appendMessage({
         role: "assistant",
@@ -218,7 +224,7 @@ describe("aeon-memory integration — installSessionToolResultGuard", () => {
       expect(mockSaveTurn).not.toHaveBeenCalled();
 
       // Legacy path should have persisted the message
-      const entries = sm.getEntries().filter((e) => e.type === "message");
+      const entries = sm.getEntries().filter((e: { type: string }) => e.type === "message");
       expect(entries).toHaveLength(1);
     });
   });
@@ -235,7 +241,6 @@ describe("aeon-memory integration — readSessionMessages", () => {
     vi.resetModules();
     vi.restoreAllMocks();
     mockGetTranscript.mockClear().mockReturnValue([]);
-    mockIsAvailable.mockClear().mockReturnValue(false);
     mockGetInstance.mockClear().mockReturnValue(null);
   });
 
@@ -244,9 +249,13 @@ describe("aeon-memory integration — readSessionMessages", () => {
   });
 
   it("falls back to JSONL when aeon-memory is not installed", async () => {
-    vi.doMock("aeon-memory", () => {
-      throw new Error("MODULE_NOT_FOUND");
-    });
+    vi.doMock("../utils/aeon-loader.js", () => ({
+      ensureAeonLoaded: () => null,
+      getAeonPlugin: () => null,
+      loadAeonMemoryAsync: async () => {},
+      triggerAeonLoad: () => {},
+      _resetForTesting: () => {},
+    }));
 
     const { readSessionMessages } = await import("../gateway/session-utils.fs.js");
 
@@ -262,17 +271,19 @@ describe("aeon-memory integration — readSessionMessages", () => {
       getTranscript: mockGetTranscript.mockReturnValue([]),
     });
 
-    vi.doMock("aeon-memory", () => ({
-      AeonMemory: {
-        getInstance: mockGetInstance,
-      },
+    const fakePlugin = {
+      getInstance: mockGetInstance,
+    };
+
+    vi.doMock("../utils/aeon-loader.js", () => ({
+      ensureAeonLoaded: () => fakePlugin,
+      getAeonPlugin: () => fakePlugin,
+      loadAeonMemoryAsync: async () => {},
+      triggerAeonLoad: () => {},
+      _resetForTesting: () => {},
     }));
 
     const { readSessionMessages } = await import("../gateway/session-utils.fs.js");
-
-    // Warm up the async lazy loader
-    readSessionMessages("dummy", undefined);
-    await new Promise((r) => setTimeout(r, 50));
 
     const messages = readSessionMessages("empty-aeon-session", undefined);
     // getTranscript returns [], so should fall through to JSONL → []
@@ -290,17 +301,19 @@ describe("aeon-memory integration — readSessionMessages", () => {
       getTranscript: mockGetTranscript.mockReturnValue(fakeTranscript),
     });
 
-    vi.doMock("aeon-memory", () => ({
-      AeonMemory: {
-        getInstance: mockGetInstance,
-      },
+    const fakePlugin = {
+      getInstance: mockGetInstance,
+    };
+
+    vi.doMock("../utils/aeon-loader.js", () => ({
+      ensureAeonLoaded: () => fakePlugin,
+      getAeonPlugin: () => fakePlugin,
+      loadAeonMemoryAsync: async () => {},
+      triggerAeonLoad: () => {},
+      _resetForTesting: () => {},
     }));
 
     const { readSessionMessages } = await import("../gateway/session-utils.fs.js");
-
-    // Warm up the async lazy loader
-    readSessionMessages("dummy", undefined);
-    await new Promise((r) => setTimeout(r, 50));
 
     const messages = readSessionMessages("aeon-session-123", undefined);
     expect(messages).toEqual(fakeTranscript);

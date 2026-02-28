@@ -9,29 +9,9 @@ import {
   resolveSessionTranscriptPath,
   resolveSessionTranscriptPathInDir,
 } from "../config/sessions.js";
-
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-let AeonMemoryPlugin: any = null;
-let aeonLoadAttempted = false;
-
-function ensureAeonLoading() {
-  if (!aeonLoadAttempted) {
-    aeonLoadAttempted = true;
-    // @ts-ignore: Optional dependency for ultra-low-latency memory
-    import("aeon-memory")
-      .then((m) => {
-        AeonMemoryPlugin = m.AeonMemory;
-      })
-      .catch((e: unknown) => {
-        const code = e instanceof Error ? (e as NodeJS.ErrnoException).code : undefined;
-        if (code !== "ERR_MODULE_NOT_FOUND" && code !== "MODULE_NOT_FOUND") {
-          console.error("🚨 [AeonMemory] Load failed:", e);
-        }
-      });
-  }
-}
 import { resolveRequiredHomeDir } from "../infra/home-dir.js";
 import { hasInterSessionUserProvenance } from "../sessions/input-provenance.js";
+import { ensureAeonLoaded } from "../utils/aeon-loader.js";
 import { stripInlineDirectiveTagsForDisplay } from "../utils/directive-tags.js";
 import { extractToolCallNames, hasToolCall } from "../utils/transcript-tools.js";
 import { stripEnvelope } from "./chat-sanitize.js";
@@ -96,7 +76,7 @@ export function readSessionMessages(
   storePath: string | undefined,
   sessionFile?: string,
 ): unknown[] {
-  ensureAeonLoading();
+  const AeonMemoryPlugin = ensureAeonLoaded();
 
   // ── AEON MEMORY: Optional read path (aeon-memory plugin) ──
   if (AeonMemoryPlugin) {

@@ -1,0 +1,1981 @@
+{
+  "total_count": 19,
+  "jobs": [
+    {
+      "id": 65237524565,
+      "run_id": 22517536818,
+      "workflow_name": "CI",
+      "head_branch": "feature/aeon-memory-plugin",
+      "run_url": "https://api.github.com/repos/openclaw/openclaw/actions/runs/22517536818",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOQb6kR88AAAAPMHWgVQ",
+      "head_sha": "33f12d27e790bfc031bb65d86938363f52e0aa8d",
+      "url": "https://api.github.com/repos/openclaw/openclaw/actions/jobs/65237524565",
+      "html_url": "https://github.com/openclaw/openclaw/actions/runs/22517536818/job/65237524565",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-02-28T08:54:44Z",
+      "started_at": "2026-02-28T08:54:46Z",
+      "completed_at": "2026-02-28T08:55:34Z",
+      "name": "secrets",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-02-28T08:54:47Z",
+          "completed_at": "2026-02-28T08:54:47Z"
+        },
+        {
+          "name": "Set up runner",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-02-28T08:54:47Z",
+          "completed_at": "2026-02-28T08:54:47Z"
+        },
+        {
+          "name": "Checkout",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-02-28T08:54:47Z",
+          "completed_at": "2026-02-28T08:54:50Z"
+        },
+        {
+          "name": "Setup Node environment",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-02-28T08:54:50Z",
+          "completed_at": "2026-02-28T08:55:07Z"
+        },
+        {
+          "name": "Setup Python",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-02-28T08:55:07Z",
+          "completed_at": "2026-02-28T08:55:08Z"
+        },
+        {
+          "name": "Install pre-commit",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-02-28T08:55:08Z",
+          "completed_at": "2026-02-28T08:55:11Z"
+        },
+        {
+          "name": "Detect secrets",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-02-28T08:55:11Z",
+          "completed_at": "2026-02-28T08:55:21Z"
+        },
+        {
+          "name": "Detect committed private keys",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8,
+          "started_at": "2026-02-28T08:55:21Z",
+          "completed_at": "2026-02-28T08:55:27Z"
+        },
+        {
+          "name": "Audit changed GitHub workflows with zizmor",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 9,
+          "started_at": "2026-02-28T08:55:27Z",
+          "completed_at": "2026-02-28T08:55:27Z"
+        },
+        {
+          "name": "Audit production dependencies",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 10,
+          "started_at": "2026-02-28T08:55:27Z",
+          "completed_at": "2026-02-28T08:55:28Z"
+        },
+        {
+          "name": "Post Setup Python",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 17,
+          "started_at": "2026-02-28T08:55:28Z",
+          "completed_at": "2026-02-28T08:55:28Z"
+        },
+        {
+          "name": "Post Setup Node environment",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 18,
+          "started_at": "2026-02-28T08:55:28Z",
+          "completed_at": "2026-02-28T08:55:28Z"
+        },
+        {
+          "name": "Post Checkout",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 19,
+          "started_at": "2026-02-28T08:55:28Z",
+          "completed_at": "2026-02-28T08:55:29Z"
+        },
+        {
+          "name": "Complete runner",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 20,
+          "started_at": "2026-02-28T08:55:29Z",
+          "completed_at": "2026-02-28T08:55:29Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 21,
+          "started_at": "2026-02-28T08:55:29Z",
+          "completed_at": "2026-02-28T08:55:29Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/openclaw/openclaw/check-runs/65237524565",
+      "labels": ["blacksmith-16vcpu-ubuntu-2404"],
+      "runner_id": 750937,
+      "runner_name": "blacksmith-01kjhq761arn55rpda39nds9fn-16vcpu",
+      "runner_group_id": 3,
+      "runner_group_name": "blacksmith runners 01kehh8g695c1nehfqhfcdevv0"
+    },
+    {
+      "id": 65237524568,
+      "run_id": 22517536818,
+      "workflow_name": "CI",
+      "head_branch": "feature/aeon-memory-plugin",
+      "run_url": "https://api.github.com/repos/openclaw/openclaw/actions/runs/22517536818",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOQb6kR88AAAAPMHWgWA",
+      "head_sha": "33f12d27e790bfc031bb65d86938363f52e0aa8d",
+      "url": "https://api.github.com/repos/openclaw/openclaw/actions/jobs/65237524568",
+      "html_url": "https://github.com/openclaw/openclaw/actions/runs/22517536818/job/65237524568",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-02-28T08:54:44Z",
+      "started_at": "2026-02-28T08:54:46Z",
+      "completed_at": "2026-02-28T08:55:00Z",
+      "name": "docs-scope",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-02-28T08:54:47Z",
+          "completed_at": "2026-02-28T08:54:47Z"
+        },
+        {
+          "name": "Set up runner",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-02-28T08:54:47Z",
+          "completed_at": "2026-02-28T08:54:47Z"
+        },
+        {
+          "name": "Checkout",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-02-28T08:54:47Z",
+          "completed_at": "2026-02-28T08:54:56Z"
+        },
+        {
+          "name": "Detect docs-only changes",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-02-28T08:54:56Z",
+          "completed_at": "2026-02-28T08:54:56Z"
+        },
+        {
+          "name": "Post Checkout",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-02-28T08:54:56Z",
+          "completed_at": "2026-02-28T08:54:56Z"
+        },
+        {
+          "name": "Complete runner",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8,
+          "started_at": "2026-02-28T08:54:56Z",
+          "completed_at": "2026-02-28T08:54:56Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 9,
+          "started_at": "2026-02-28T08:54:56Z",
+          "completed_at": "2026-02-28T08:54:56Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/openclaw/openclaw/check-runs/65237524568",
+      "labels": ["blacksmith-16vcpu-ubuntu-2404"],
+      "runner_id": 750963,
+      "runner_name": "blacksmith-01kjhq92myzp3r94kp7twbq9wf-16vcpu",
+      "runner_group_id": 3,
+      "runner_group_name": "blacksmith runners 01kehh8g695c1nehfqhfcdevv0"
+    },
+    {
+      "id": 65237524701,
+      "run_id": 22517536818,
+      "workflow_name": "CI",
+      "head_branch": "feature/aeon-memory-plugin",
+      "run_url": "https://api.github.com/repos/openclaw/openclaw/actions/runs/22517536818",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOQb6kR88AAAAPMHWg3Q",
+      "head_sha": "33f12d27e790bfc031bb65d86938363f52e0aa8d",
+      "url": "https://api.github.com/repos/openclaw/openclaw/actions/jobs/65237524701",
+      "html_url": "https://github.com/openclaw/openclaw/actions/runs/22517536818/job/65237524701",
+      "status": "completed",
+      "conclusion": "skipped",
+      "created_at": "2026-02-28T08:54:45Z",
+      "started_at": "2026-02-28T08:54:45Z",
+      "completed_at": "2026-02-28T08:54:44Z",
+      "name": "ios",
+      "steps": [],
+      "check_run_url": "https://api.github.com/repos/openclaw/openclaw/check-runs/65237524701",
+      "labels": ["macos-latest"],
+      "runner_id": null,
+      "runner_name": null,
+      "runner_group_id": null,
+      "runner_group_name": null
+    },
+    {
+      "id": 65237533540,
+      "run_id": 22517536818,
+      "workflow_name": "CI",
+      "head_branch": "feature/aeon-memory-plugin",
+      "run_url": "https://api.github.com/repos/openclaw/openclaw/actions/runs/22517536818",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOQb6kR88AAAAPMHXDZA",
+      "head_sha": "33f12d27e790bfc031bb65d86938363f52e0aa8d",
+      "url": "https://api.github.com/repos/openclaw/openclaw/actions/jobs/65237533540",
+      "html_url": "https://github.com/openclaw/openclaw/actions/runs/22517536818/job/65237533540",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-02-28T08:55:00Z",
+      "started_at": "2026-02-28T08:55:02Z",
+      "completed_at": "2026-02-28T08:55:16Z",
+      "name": "changed-scope",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-02-28T08:55:03Z",
+          "completed_at": "2026-02-28T08:55:03Z"
+        },
+        {
+          "name": "Set up runner",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-02-28T08:55:03Z",
+          "completed_at": "2026-02-28T08:55:03Z"
+        },
+        {
+          "name": "Checkout",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-02-28T08:55:03Z",
+          "completed_at": "2026-02-28T08:55:12Z"
+        },
+        {
+          "name": "Detect changed scopes",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-02-28T08:55:12Z",
+          "completed_at": "2026-02-28T08:55:12Z"
+        },
+        {
+          "name": "Post Checkout",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-02-28T08:55:12Z",
+          "completed_at": "2026-02-28T08:55:12Z"
+        },
+        {
+          "name": "Complete runner",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8,
+          "started_at": "2026-02-28T08:55:12Z",
+          "completed_at": "2026-02-28T08:55:12Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 9,
+          "started_at": "2026-02-28T08:55:12Z",
+          "completed_at": "2026-02-28T08:55:12Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/openclaw/openclaw/check-runs/65237533540",
+      "labels": ["blacksmith-16vcpu-ubuntu-2404"],
+      "runner_id": 750989,
+      "runner_name": "blacksmith-01kjhqa5gadzt3r8mwk7fy0n6x-16vcpu",
+      "runner_group_id": 3,
+      "runner_group_name": "blacksmith runners 01kehh8g695c1nehfqhfcdevv0"
+    },
+    {
+      "id": 65237533546,
+      "run_id": 22517536818,
+      "workflow_name": "CI",
+      "head_branch": "feature/aeon-memory-plugin",
+      "run_url": "https://api.github.com/repos/openclaw/openclaw/actions/runs/22517536818",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOQb6kR88AAAAPMHXDag",
+      "head_sha": "33f12d27e790bfc031bb65d86938363f52e0aa8d",
+      "url": "https://api.github.com/repos/openclaw/openclaw/actions/jobs/65237533546",
+      "html_url": "https://github.com/openclaw/openclaw/actions/runs/22517536818/job/65237533546",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-02-28T08:55:00Z",
+      "started_at": "2026-02-28T08:55:02Z",
+      "completed_at": "2026-02-28T08:55:43Z",
+      "name": "check",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-02-28T08:55:03Z",
+          "completed_at": "2026-02-28T08:55:03Z"
+        },
+        {
+          "name": "Set up runner",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-02-28T08:55:03Z",
+          "completed_at": "2026-02-28T08:55:03Z"
+        },
+        {
+          "name": "Checkout",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-02-28T08:55:03Z",
+          "completed_at": "2026-02-28T08:55:06Z"
+        },
+        {
+          "name": "Setup Node environment",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-02-28T08:55:06Z",
+          "completed_at": "2026-02-28T08:55:23Z"
+        },
+        {
+          "name": "Check types and lint and oxfmt",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-02-28T08:55:23Z",
+          "completed_at": "2026-02-28T08:55:39Z"
+        },
+        {
+          "name": "Enforce safe external URL opening policy",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-02-28T08:55:39Z",
+          "completed_at": "2026-02-28T08:55:39Z"
+        },
+        {
+          "name": "Post Setup Node environment",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 10,
+          "started_at": "2026-02-28T08:55:39Z",
+          "completed_at": "2026-02-28T08:55:39Z"
+        },
+        {
+          "name": "Post Checkout",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 11,
+          "started_at": "2026-02-28T08:55:39Z",
+          "completed_at": "2026-02-28T08:55:40Z"
+        },
+        {
+          "name": "Complete runner",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 12,
+          "started_at": "2026-02-28T08:55:40Z",
+          "completed_at": "2026-02-28T08:55:40Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 13,
+          "started_at": "2026-02-28T08:55:40Z",
+          "completed_at": "2026-02-28T08:55:40Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/openclaw/openclaw/check-runs/65237533546",
+      "labels": ["blacksmith-16vcpu-ubuntu-2404"],
+      "runner_id": 750983,
+      "runner_name": "blacksmith-01kjhqa00kvjmj0syjnwttzejm-16vcpu",
+      "runner_group_id": 3,
+      "runner_group_name": "blacksmith runners 01kehh8g695c1nehfqhfcdevv0"
+    },
+    {
+      "id": 65237533674,
+      "run_id": 22517536818,
+      "workflow_name": "CI",
+      "head_branch": "feature/aeon-memory-plugin",
+      "run_url": "https://api.github.com/repos/openclaw/openclaw/actions/runs/22517536818",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOQb6kR88AAAAPMHXD6g",
+      "head_sha": "33f12d27e790bfc031bb65d86938363f52e0aa8d",
+      "url": "https://api.github.com/repos/openclaw/openclaw/actions/jobs/65237533674",
+      "html_url": "https://github.com/openclaw/openclaw/actions/runs/22517536818/job/65237533674",
+      "status": "completed",
+      "conclusion": "skipped",
+      "created_at": "2026-02-28T08:55:00Z",
+      "started_at": "2026-02-28T08:55:00Z",
+      "completed_at": "2026-02-28T08:55:00Z",
+      "name": "check-docs",
+      "steps": [],
+      "check_run_url": "https://api.github.com/repos/openclaw/openclaw/check-runs/65237533674",
+      "labels": ["blacksmith-16vcpu-ubuntu-2404"],
+      "runner_id": null,
+      "runner_name": null,
+      "runner_group_id": null,
+      "runner_group_name": null
+    },
+    {
+      "id": 65237542805,
+      "run_id": 22517536818,
+      "workflow_name": "CI",
+      "head_branch": "feature/aeon-memory-plugin",
+      "run_url": "https://api.github.com/repos/openclaw/openclaw/actions/runs/22517536818",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOQb6kR88AAAAPMHXnlQ",
+      "head_sha": "33f12d27e790bfc031bb65d86938363f52e0aa8d",
+      "url": "https://api.github.com/repos/openclaw/openclaw/actions/jobs/65237542805",
+      "html_url": "https://github.com/openclaw/openclaw/actions/runs/22517536818/job/65237542805",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-02-28T08:55:17Z",
+      "started_at": "2026-02-28T08:55:18Z",
+      "completed_at": "2026-02-28T08:55:29Z",
+      "name": "skills-python",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-02-28T08:55:19Z",
+          "completed_at": "2026-02-28T08:55:20Z"
+        },
+        {
+          "name": "Set up runner",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-02-28T08:55:20Z",
+          "completed_at": "2026-02-28T08:55:20Z"
+        },
+        {
+          "name": "Checkout",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-02-28T08:55:20Z",
+          "completed_at": "2026-02-28T08:55:22Z"
+        },
+        {
+          "name": "Setup Python",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-02-28T08:55:22Z",
+          "completed_at": "2026-02-28T08:55:22Z"
+        },
+        {
+          "name": "Install Python tooling",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-02-28T08:55:22Z",
+          "completed_at": "2026-02-28T08:55:25Z"
+        },
+        {
+          "name": "Lint Python skill scripts",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-02-28T08:55:25Z",
+          "completed_at": "2026-02-28T08:55:25Z"
+        },
+        {
+          "name": "Test skill Python scripts",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-02-28T08:55:25Z",
+          "completed_at": "2026-02-28T08:55:25Z"
+        },
+        {
+          "name": "Post Setup Python",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 12,
+          "started_at": "2026-02-28T08:55:25Z",
+          "completed_at": "2026-02-28T08:55:25Z"
+        },
+        {
+          "name": "Post Checkout",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 13,
+          "started_at": "2026-02-28T08:55:25Z",
+          "completed_at": "2026-02-28T08:55:25Z"
+        },
+        {
+          "name": "Complete runner",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 14,
+          "started_at": "2026-02-28T08:55:25Z",
+          "completed_at": "2026-02-28T08:55:25Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 15,
+          "started_at": "2026-02-28T08:55:25Z",
+          "completed_at": "2026-02-28T08:55:25Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/openclaw/openclaw/check-runs/65237542805",
+      "labels": ["blacksmith-16vcpu-ubuntu-2404"],
+      "runner_id": 750987,
+      "runner_name": "blacksmith-01kjhqa5g2h6m0ck087g8xw8ms-16vcpu",
+      "runner_group_id": 3,
+      "runner_group_name": "blacksmith runners 01kehh8g695c1nehfqhfcdevv0"
+    },
+    {
+      "id": 65237542903,
+      "run_id": 22517536818,
+      "workflow_name": "CI",
+      "head_branch": "feature/aeon-memory-plugin",
+      "run_url": "https://api.github.com/repos/openclaw/openclaw/actions/runs/22517536818",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOQb6kR88AAAAPMHXn9w",
+      "head_sha": "33f12d27e790bfc031bb65d86938363f52e0aa8d",
+      "url": "https://api.github.com/repos/openclaw/openclaw/actions/jobs/65237542903",
+      "html_url": "https://github.com/openclaw/openclaw/actions/runs/22517536818/job/65237542903",
+      "status": "completed",
+      "conclusion": "skipped",
+      "created_at": "2026-02-28T08:55:17Z",
+      "started_at": "2026-02-28T08:55:17Z",
+      "completed_at": "2026-02-28T08:55:17Z",
+      "name": "dead-code report",
+      "steps": [],
+      "check_run_url": "https://api.github.com/repos/openclaw/openclaw/check-runs/65237542903",
+      "labels": ["blacksmith-16vcpu-ubuntu-2404"],
+      "runner_id": null,
+      "runner_name": null,
+      "runner_group_id": null,
+      "runner_group_name": null
+    },
+    {
+      "id": 65237557365,
+      "run_id": 22517536818,
+      "workflow_name": "CI",
+      "head_branch": "feature/aeon-memory-plugin",
+      "run_url": "https://api.github.com/repos/openclaw/openclaw/actions/runs/22517536818",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOQb6kR88AAAAPMHYgdQ",
+      "head_sha": "33f12d27e790bfc031bb65d86938363f52e0aa8d",
+      "url": "https://api.github.com/repos/openclaw/openclaw/actions/jobs/65237557365",
+      "html_url": "https://github.com/openclaw/openclaw/actions/runs/22517536818/job/65237557365",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-02-28T08:55:44Z",
+      "started_at": "2026-02-28T08:55:45Z",
+      "completed_at": "2026-02-28T08:56:30Z",
+      "name": "build-artifacts",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-02-28T08:55:46Z",
+          "completed_at": "2026-02-28T08:55:47Z"
+        },
+        {
+          "name": "Set up runner",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-02-28T08:55:47Z",
+          "completed_at": "2026-02-28T08:55:47Z"
+        },
+        {
+          "name": "Checkout",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-02-28T08:55:47Z",
+          "completed_at": "2026-02-28T08:55:49Z"
+        },
+        {
+          "name": "Setup Node environment",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-02-28T08:55:49Z",
+          "completed_at": "2026-02-28T08:56:08Z"
+        },
+        {
+          "name": "Build dist",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-02-28T08:56:08Z",
+          "completed_at": "2026-02-28T08:56:22Z"
+        },
+        {
+          "name": "Upload dist artifact",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-02-28T08:56:22Z",
+          "completed_at": "2026-02-28T08:56:26Z"
+        },
+        {
+          "name": "Post Setup Node environment",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 10,
+          "started_at": "2026-02-28T08:56:26Z",
+          "completed_at": "2026-02-28T08:56:26Z"
+        },
+        {
+          "name": "Post Checkout",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 11,
+          "started_at": "2026-02-28T08:56:26Z",
+          "completed_at": "2026-02-28T08:56:26Z"
+        },
+        {
+          "name": "Complete runner",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 12,
+          "started_at": "2026-02-28T08:56:26Z",
+          "completed_at": "2026-02-28T08:56:26Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 13,
+          "started_at": "2026-02-28T08:56:26Z",
+          "completed_at": "2026-02-28T08:56:26Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/openclaw/openclaw/check-runs/65237557365",
+      "labels": ["blacksmith-16vcpu-ubuntu-2404"],
+      "runner_id": 750994,
+      "runner_name": "blacksmith-01kjhqac3328wpb8b8ytnngywp-16vcpu",
+      "runner_group_id": 3,
+      "runner_group_name": "blacksmith runners 01kehh8g695c1nehfqhfcdevv0"
+    },
+    {
+      "id": 65237557377,
+      "run_id": 22517536818,
+      "workflow_name": "CI",
+      "head_branch": "feature/aeon-memory-plugin",
+      "run_url": "https://api.github.com/repos/openclaw/openclaw/actions/runs/22517536818",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOQb6kR88AAAAPMHYggQ",
+      "head_sha": "33f12d27e790bfc031bb65d86938363f52e0aa8d",
+      "url": "https://api.github.com/repos/openclaw/openclaw/actions/jobs/65237557377",
+      "html_url": "https://github.com/openclaw/openclaw/actions/runs/22517536818/job/65237557377",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-02-28T08:55:44Z",
+      "started_at": "2026-02-28T08:55:45Z",
+      "completed_at": "2026-02-28T08:59:07Z",
+      "name": "checks (node, test, pnpm canvas:a2ui:bundle && pnpm test)",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-02-28T08:55:48Z",
+          "completed_at": "2026-02-28T08:55:49Z"
+        },
+        {
+          "name": "Set up runner",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-02-28T08:55:49Z",
+          "completed_at": "2026-02-28T08:55:49Z"
+        },
+        {
+          "name": "Skip bun lane on push",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 3,
+          "started_at": "2026-02-28T08:55:49Z",
+          "completed_at": "2026-02-28T08:55:49Z"
+        },
+        {
+          "name": "Checkout",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-02-28T08:55:49Z",
+          "completed_at": "2026-02-28T08:55:50Z"
+        },
+        {
+          "name": "Setup Node environment",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-02-28T08:55:50Z",
+          "completed_at": "2026-02-28T08:56:08Z"
+        },
+        {
+          "name": "Configure vitest JSON reports",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-02-28T08:56:08Z",
+          "completed_at": "2026-02-28T08:56:08Z"
+        },
+        {
+          "name": "Configure Node test resources",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-02-28T08:56:08Z",
+          "completed_at": "2026-02-28T08:56:08Z"
+        },
+        {
+          "name": "Run test (node)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8,
+          "started_at": "2026-02-28T08:56:08Z",
+          "completed_at": "2026-02-28T08:59:01Z"
+        },
+        {
+          "name": "Summarize slowest tests",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 9,
+          "started_at": "2026-02-28T08:59:01Z",
+          "completed_at": "2026-02-28T08:59:01Z"
+        },
+        {
+          "name": "Upload vitest reports",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 10,
+          "started_at": "2026-02-28T08:59:01Z",
+          "completed_at": "2026-02-28T08:59:03Z"
+        },
+        {
+          "name": "Post Setup Node environment",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 18,
+          "started_at": "2026-02-28T08:59:03Z",
+          "completed_at": "2026-02-28T08:59:03Z"
+        },
+        {
+          "name": "Post Checkout",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 19,
+          "started_at": "2026-02-28T08:59:03Z",
+          "completed_at": "2026-02-28T08:59:03Z"
+        },
+        {
+          "name": "Complete runner",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 20,
+          "started_at": "2026-02-28T08:59:03Z",
+          "completed_at": "2026-02-28T08:59:03Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 21,
+          "started_at": "2026-02-28T08:59:03Z",
+          "completed_at": "2026-02-28T08:59:03Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/openclaw/openclaw/check-runs/65237557377",
+      "labels": ["blacksmith-16vcpu-ubuntu-2404"],
+      "runner_id": 751001,
+      "runner_name": "blacksmith-01kjhqb15t8cqw3semvrj003yq-16vcpu",
+      "runner_group_id": 3,
+      "runner_group_name": "blacksmith runners 01kehh8g695c1nehfqhfcdevv0"
+    },
+    {
+      "id": 65237557381,
+      "run_id": 22517536818,
+      "workflow_name": "CI",
+      "head_branch": "feature/aeon-memory-plugin",
+      "run_url": "https://api.github.com/repos/openclaw/openclaw/actions/runs/22517536818",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOQb6kR88AAAAPMHYghQ",
+      "head_sha": "33f12d27e790bfc031bb65d86938363f52e0aa8d",
+      "url": "https://api.github.com/repos/openclaw/openclaw/actions/jobs/65237557381",
+      "html_url": "https://github.com/openclaw/openclaw/actions/runs/22517536818/job/65237557381",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-02-28T08:55:44Z",
+      "started_at": "2026-02-28T08:55:45Z",
+      "completed_at": "2026-02-28T09:00:02Z",
+      "name": "checks (bun, test, pnpm canvas:a2ui:bundle && bunx vitest run --config vitest.unit.config.ts)",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-02-28T08:55:46Z",
+          "completed_at": "2026-02-28T08:55:47Z"
+        },
+        {
+          "name": "Set up runner",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-02-28T08:55:47Z",
+          "completed_at": "2026-02-28T08:55:47Z"
+        },
+        {
+          "name": "Skip bun lane on push",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 3,
+          "started_at": "2026-02-28T08:55:47Z",
+          "completed_at": "2026-02-28T08:55:47Z"
+        },
+        {
+          "name": "Checkout",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-02-28T08:55:47Z",
+          "completed_at": "2026-02-28T08:55:48Z"
+        },
+        {
+          "name": "Setup Node environment",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-02-28T08:55:48Z",
+          "completed_at": "2026-02-28T08:56:07Z"
+        },
+        {
+          "name": "Configure vitest JSON reports",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 6,
+          "started_at": "2026-02-28T08:56:07Z",
+          "completed_at": "2026-02-28T08:56:07Z"
+        },
+        {
+          "name": "Configure Node test resources",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 7,
+          "started_at": "2026-02-28T08:56:07Z",
+          "completed_at": "2026-02-28T08:56:07Z"
+        },
+        {
+          "name": "Run test (bun)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8,
+          "started_at": "2026-02-28T08:56:07Z",
+          "completed_at": "2026-02-28T08:59:57Z"
+        },
+        {
+          "name": "Summarize slowest tests",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 9,
+          "started_at": "2026-02-28T08:59:57Z",
+          "completed_at": "2026-02-28T08:59:57Z"
+        },
+        {
+          "name": "Upload vitest reports",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 10,
+          "started_at": "2026-02-28T08:59:57Z",
+          "completed_at": "2026-02-28T08:59:57Z"
+        },
+        {
+          "name": "Post Setup Node environment",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 18,
+          "started_at": "2026-02-28T08:59:57Z",
+          "completed_at": "2026-02-28T08:59:57Z"
+        },
+        {
+          "name": "Post Checkout",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 19,
+          "started_at": "2026-02-28T08:59:57Z",
+          "completed_at": "2026-02-28T08:59:57Z"
+        },
+        {
+          "name": "Complete runner",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 20,
+          "started_at": "2026-02-28T08:59:57Z",
+          "completed_at": "2026-02-28T08:59:57Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 21,
+          "started_at": "2026-02-28T08:59:57Z",
+          "completed_at": "2026-02-28T08:59:57Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/openclaw/openclaw/check-runs/65237557381",
+      "labels": ["blacksmith-16vcpu-ubuntu-2404"],
+      "runner_id": 750961,
+      "runner_name": "blacksmith-01kjhq8nb43wg6pc6q27ecy3sc-16vcpu",
+      "runner_group_id": 3,
+      "runner_group_name": "blacksmith runners 01kehh8g695c1nehfqhfcdevv0"
+    },
+    {
+      "id": 65237557386,
+      "run_id": 22517536818,
+      "workflow_name": "CI",
+      "head_branch": "feature/aeon-memory-plugin",
+      "run_url": "https://api.github.com/repos/openclaw/openclaw/actions/runs/22517536818",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOQb6kR88AAAAPMHYgig",
+      "head_sha": "33f12d27e790bfc031bb65d86938363f52e0aa8d",
+      "url": "https://api.github.com/repos/openclaw/openclaw/actions/jobs/65237557386",
+      "html_url": "https://github.com/openclaw/openclaw/actions/runs/22517536818/job/65237557386",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-02-28T08:55:44Z",
+      "started_at": "2026-02-28T08:55:45Z",
+      "completed_at": "2026-02-28T08:56:13Z",
+      "name": "checks (node, protocol, pnpm protocol:check)",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-02-28T08:55:46Z",
+          "completed_at": "2026-02-28T08:55:47Z"
+        },
+        {
+          "name": "Set up runner",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-02-28T08:55:47Z",
+          "completed_at": "2026-02-28T08:55:47Z"
+        },
+        {
+          "name": "Skip bun lane on push",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 3,
+          "started_at": "2026-02-28T08:55:47Z",
+          "completed_at": "2026-02-28T08:55:47Z"
+        },
+        {
+          "name": "Checkout",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-02-28T08:55:47Z",
+          "completed_at": "2026-02-28T08:55:49Z"
+        },
+        {
+          "name": "Setup Node environment",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-02-28T08:55:49Z",
+          "completed_at": "2026-02-28T08:56:08Z"
+        },
+        {
+          "name": "Configure vitest JSON reports",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 6,
+          "started_at": "2026-02-28T08:56:08Z",
+          "completed_at": "2026-02-28T08:56:08Z"
+        },
+        {
+          "name": "Configure Node test resources",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 7,
+          "started_at": "2026-02-28T08:56:08Z",
+          "completed_at": "2026-02-28T08:56:08Z"
+        },
+        {
+          "name": "Run protocol (node)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8,
+          "started_at": "2026-02-28T08:56:08Z",
+          "completed_at": "2026-02-28T08:56:09Z"
+        },
+        {
+          "name": "Summarize slowest tests",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 9,
+          "started_at": "2026-02-28T08:56:09Z",
+          "completed_at": "2026-02-28T08:56:09Z"
+        },
+        {
+          "name": "Upload vitest reports",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 10,
+          "started_at": "2026-02-28T08:56:09Z",
+          "completed_at": "2026-02-28T08:56:09Z"
+        },
+        {
+          "name": "Post Setup Node environment",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 18,
+          "started_at": "2026-02-28T08:56:09Z",
+          "completed_at": "2026-02-28T08:56:09Z"
+        },
+        {
+          "name": "Post Checkout",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 19,
+          "started_at": "2026-02-28T08:56:09Z",
+          "completed_at": "2026-02-28T08:56:09Z"
+        },
+        {
+          "name": "Complete runner",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 20,
+          "started_at": "2026-02-28T08:56:09Z",
+          "completed_at": "2026-02-28T08:56:09Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 21,
+          "started_at": "2026-02-28T08:56:09Z",
+          "completed_at": "2026-02-28T08:56:09Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/openclaw/openclaw/check-runs/65237557386",
+      "labels": ["blacksmith-16vcpu-ubuntu-2404"],
+      "runner_id": 751008,
+      "runner_name": "blacksmith-01kjhqb77sscergadjh5sj6k3g-16vcpu",
+      "runner_group_id": 3,
+      "runner_group_name": "blacksmith runners 01kehh8g695c1nehfqhfcdevv0"
+    },
+    {
+      "id": 65237557452,
+      "run_id": 22517536818,
+      "workflow_name": "CI",
+      "head_branch": "feature/aeon-memory-plugin",
+      "run_url": "https://api.github.com/repos/openclaw/openclaw/actions/runs/22517536818",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOQb6kR88AAAAPMHYgzA",
+      "head_sha": "33f12d27e790bfc031bb65d86938363f52e0aa8d",
+      "url": "https://api.github.com/repos/openclaw/openclaw/actions/jobs/65237557452",
+      "html_url": "https://github.com/openclaw/openclaw/actions/runs/22517536818/job/65237557452",
+      "status": "completed",
+      "conclusion": "skipped",
+      "created_at": "2026-02-28T08:55:44Z",
+      "started_at": "2026-02-28T08:55:44Z",
+      "completed_at": "2026-02-28T08:55:44Z",
+      "name": "android",
+      "steps": [],
+      "check_run_url": "https://api.github.com/repos/openclaw/openclaw/check-runs/65237557452",
+      "labels": ["blacksmith-16vcpu-ubuntu-2404"],
+      "runner_id": null,
+      "runner_name": null,
+      "runner_group_id": null,
+      "runner_group_name": null
+    },
+    {
+      "id": 65237557487,
+      "run_id": 22517536818,
+      "workflow_name": "CI",
+      "head_branch": "feature/aeon-memory-plugin",
+      "run_url": "https://api.github.com/repos/openclaw/openclaw/actions/runs/22517536818",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOQb6kR88AAAAPMHYg7w",
+      "head_sha": "33f12d27e790bfc031bb65d86938363f52e0aa8d",
+      "url": "https://api.github.com/repos/openclaw/openclaw/actions/jobs/65237557487",
+      "html_url": "https://github.com/openclaw/openclaw/actions/runs/22517536818/job/65237557487",
+      "status": "completed",
+      "conclusion": "skipped",
+      "created_at": "2026-02-28T08:55:44Z",
+      "started_at": "2026-02-28T08:55:44Z",
+      "completed_at": "2026-02-28T08:55:44Z",
+      "name": "macos",
+      "steps": [],
+      "check_run_url": "https://api.github.com/repos/openclaw/openclaw/check-runs/65237557487",
+      "labels": ["macos-latest"],
+      "runner_id": null,
+      "runner_name": null,
+      "runner_group_id": null,
+      "runner_group_name": null
+    },
+    {
+      "id": 65237585488,
+      "run_id": 22517536818,
+      "workflow_name": "CI",
+      "head_branch": "feature/aeon-memory-plugin",
+      "run_url": "https://api.github.com/repos/openclaw/openclaw/actions/runs/22517536818",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOQb6kR88AAAAPMHaOUA",
+      "head_sha": "33f12d27e790bfc031bb65d86938363f52e0aa8d",
+      "url": "https://api.github.com/repos/openclaw/openclaw/actions/jobs/65237585488",
+      "html_url": "https://github.com/openclaw/openclaw/actions/runs/22517536818/job/65237585488",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-02-28T08:56:31Z",
+      "started_at": "2026-02-28T08:56:33Z",
+      "completed_at": "2026-02-28T09:00:27Z",
+      "name": "checks-windows (node, lint, 0, 1, pnpm lint)",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-02-28T08:56:36Z",
+          "completed_at": "2026-02-28T08:56:42Z"
+        },
+        {
+          "name": "Set up runner",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-02-28T08:56:42Z",
+          "completed_at": "2026-02-28T08:56:46Z"
+        },
+        {
+          "name": "Checkout",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-02-28T08:56:46Z",
+          "completed_at": "2026-02-28T08:57:04Z"
+        },
+        {
+          "name": "Try to exclude workspace from Windows Defender (best-effort)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-02-28T08:57:04Z",
+          "completed_at": "2026-02-28T08:57:10Z"
+        },
+        {
+          "name": "Download dist artifact (lint lane)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-02-28T08:57:10Z",
+          "completed_at": "2026-02-28T08:57:17Z"
+        },
+        {
+          "name": "Verify dist artifact (lint lane)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-02-28T08:57:17Z",
+          "completed_at": "2026-02-28T08:57:17Z"
+        },
+        {
+          "name": "Setup Node.js",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-02-28T08:57:17Z",
+          "completed_at": "2026-02-28T08:57:33Z"
+        },
+        {
+          "name": "Setup pnpm + cache store",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8,
+          "started_at": "2026-02-28T08:57:33Z",
+          "completed_at": "2026-02-28T08:59:04Z"
+        },
+        {
+          "name": "Runtime versions",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 9,
+          "started_at": "2026-02-28T08:59:04Z",
+          "completed_at": "2026-02-28T08:59:05Z"
+        },
+        {
+          "name": "Capture node path",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 10,
+          "started_at": "2026-02-28T08:59:05Z",
+          "completed_at": "2026-02-28T08:59:05Z"
+        },
+        {
+          "name": "Install dependencies",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 11,
+          "started_at": "2026-02-28T08:59:05Z",
+          "completed_at": "2026-02-28T09:00:08Z"
+        },
+        {
+          "name": "Configure test shard (Windows)",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 12,
+          "started_at": "2026-02-28T09:00:08Z",
+          "completed_at": "2026-02-28T09:00:08Z"
+        },
+        {
+          "name": "Configure vitest JSON reports",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 13,
+          "started_at": "2026-02-28T09:00:08Z",
+          "completed_at": "2026-02-28T09:00:08Z"
+        },
+        {
+          "name": "Run lint (node)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 14,
+          "started_at": "2026-02-28T09:00:08Z",
+          "completed_at": "2026-02-28T09:00:12Z"
+        },
+        {
+          "name": "Summarize slowest tests",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 15,
+          "started_at": "2026-02-28T09:00:12Z",
+          "completed_at": "2026-02-28T09:00:12Z"
+        },
+        {
+          "name": "Upload vitest reports",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 16,
+          "started_at": "2026-02-28T09:00:12Z",
+          "completed_at": "2026-02-28T09:00:12Z"
+        },
+        {
+          "name": "Post Setup pnpm + cache store",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 29,
+          "started_at": "2026-02-28T09:00:12Z",
+          "completed_at": "2026-02-28T09:00:22Z"
+        },
+        {
+          "name": "Post Setup Node.js",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 30,
+          "started_at": "2026-02-28T09:00:22Z",
+          "completed_at": "2026-02-28T09:00:22Z"
+        },
+        {
+          "name": "Post Checkout",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 31,
+          "started_at": "2026-02-28T09:00:22Z",
+          "completed_at": "2026-02-28T09:00:24Z"
+        },
+        {
+          "name": "Complete runner",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 32,
+          "started_at": "2026-02-28T09:00:24Z",
+          "completed_at": "2026-02-28T09:00:24Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 33,
+          "started_at": "2026-02-28T09:00:24Z",
+          "completed_at": "2026-02-28T09:00:25Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/openclaw/openclaw/check-runs/65237585488",
+      "labels": ["blacksmith-16vcpu-windows-2025"],
+      "runner_id": 751015,
+      "runner_name": "blacksmith-01kjhqbmqnrp3233hpshkvd7s6-16vcpu",
+      "runner_group_id": 3,
+      "runner_group_name": "blacksmith runners 01kehh8g695c1nehfqhfcdevv0"
+    },
+    {
+      "id": 65237585490,
+      "run_id": 22517536818,
+      "workflow_name": "CI",
+      "head_branch": "feature/aeon-memory-plugin",
+      "run_url": "https://api.github.com/repos/openclaw/openclaw/actions/runs/22517536818",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOQb6kR88AAAAPMHaOUg",
+      "head_sha": "33f12d27e790bfc031bb65d86938363f52e0aa8d",
+      "url": "https://api.github.com/repos/openclaw/openclaw/actions/jobs/65237585490",
+      "html_url": "https://github.com/openclaw/openclaw/actions/runs/22517536818/job/65237585490",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-02-28T08:56:31Z",
+      "started_at": "2026-02-28T08:56:33Z",
+      "completed_at": "2026-02-28T09:01:33Z",
+      "name": "checks-windows (node, protocol, 0, 1, pnpm protocol:check)",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-02-28T08:56:36Z",
+          "completed_at": "2026-02-28T08:56:43Z"
+        },
+        {
+          "name": "Set up runner",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-02-28T08:56:43Z",
+          "completed_at": "2026-02-28T08:56:47Z"
+        },
+        {
+          "name": "Checkout",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-02-28T08:56:47Z",
+          "completed_at": "2026-02-28T08:57:07Z"
+        },
+        {
+          "name": "Try to exclude workspace from Windows Defender (best-effort)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-02-28T08:57:07Z",
+          "completed_at": "2026-02-28T08:57:14Z"
+        },
+        {
+          "name": "Download dist artifact (lint lane)",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 5,
+          "started_at": "2026-02-28T08:57:14Z",
+          "completed_at": "2026-02-28T08:57:14Z"
+        },
+        {
+          "name": "Verify dist artifact (lint lane)",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 6,
+          "started_at": "2026-02-28T08:57:14Z",
+          "completed_at": "2026-02-28T08:57:14Z"
+        },
+        {
+          "name": "Setup Node.js",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-02-28T08:57:14Z",
+          "completed_at": "2026-02-28T08:57:45Z"
+        },
+        {
+          "name": "Setup pnpm + cache store",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8,
+          "started_at": "2026-02-28T08:57:45Z",
+          "completed_at": "2026-02-28T08:59:48Z"
+        },
+        {
+          "name": "Runtime versions",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 9,
+          "started_at": "2026-02-28T08:59:48Z",
+          "completed_at": "2026-02-28T08:59:50Z"
+        },
+        {
+          "name": "Capture node path",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 10,
+          "started_at": "2026-02-28T08:59:50Z",
+          "completed_at": "2026-02-28T08:59:50Z"
+        },
+        {
+          "name": "Install dependencies",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 11,
+          "started_at": "2026-02-28T08:59:50Z",
+          "completed_at": "2026-02-28T09:00:58Z"
+        },
+        {
+          "name": "Configure test shard (Windows)",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 12,
+          "started_at": "2026-02-28T09:00:58Z",
+          "completed_at": "2026-02-28T09:00:58Z"
+        },
+        {
+          "name": "Configure vitest JSON reports",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 13,
+          "started_at": "2026-02-28T09:00:58Z",
+          "completed_at": "2026-02-28T09:00:58Z"
+        },
+        {
+          "name": "Run protocol (node)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 14,
+          "started_at": "2026-02-28T09:00:58Z",
+          "completed_at": "2026-02-28T09:01:03Z"
+        },
+        {
+          "name": "Summarize slowest tests",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 15,
+          "started_at": "2026-02-28T09:01:03Z",
+          "completed_at": "2026-02-28T09:01:03Z"
+        },
+        {
+          "name": "Upload vitest reports",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 16,
+          "started_at": "2026-02-28T09:01:03Z",
+          "completed_at": "2026-02-28T09:01:03Z"
+        },
+        {
+          "name": "Post Setup pnpm + cache store",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 29,
+          "started_at": "2026-02-28T09:01:03Z",
+          "completed_at": "2026-02-28T09:01:27Z"
+        },
+        {
+          "name": "Post Setup Node.js",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 30,
+          "started_at": "2026-02-28T09:01:27Z",
+          "completed_at": "2026-02-28T09:01:28Z"
+        },
+        {
+          "name": "Post Checkout",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 31,
+          "started_at": "2026-02-28T09:01:28Z",
+          "completed_at": "2026-02-28T09:01:29Z"
+        },
+        {
+          "name": "Complete runner",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 32,
+          "started_at": "2026-02-28T09:01:29Z",
+          "completed_at": "2026-02-28T09:01:30Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 33,
+          "started_at": "2026-02-28T09:01:30Z",
+          "completed_at": "2026-02-28T09:01:30Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/openclaw/openclaw/check-runs/65237585490",
+      "labels": ["blacksmith-16vcpu-windows-2025"],
+      "runner_id": 751017,
+      "runner_name": "blacksmith-01kjhqbmn4aq06zgn87x9exxdg-16vcpu",
+      "runner_group_id": 3,
+      "runner_group_name": "blacksmith runners 01kehh8g695c1nehfqhfcdevv0"
+    },
+    {
+      "id": 65237585491,
+      "run_id": 22517536818,
+      "workflow_name": "CI",
+      "head_branch": "feature/aeon-memory-plugin",
+      "run_url": "https://api.github.com/repos/openclaw/openclaw/actions/runs/22517536818",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOQb6kR88AAAAPMHaOUw",
+      "head_sha": "33f12d27e790bfc031bb65d86938363f52e0aa8d",
+      "url": "https://api.github.com/repos/openclaw/openclaw/actions/jobs/65237585491",
+      "html_url": "https://github.com/openclaw/openclaw/actions/runs/22517536818/job/65237585491",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-02-28T08:56:31Z",
+      "started_at": "2026-02-28T08:56:33Z",
+      "completed_at": "2026-02-28T09:08:02Z",
+      "name": "checks-windows (node, test, 1, 2, pnpm canvas:a2ui:bundle && pnpm test)",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-02-28T08:56:36Z",
+          "completed_at": "2026-02-28T08:56:41Z"
+        },
+        {
+          "name": "Set up runner",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-02-28T08:56:41Z",
+          "completed_at": "2026-02-28T08:56:45Z"
+        },
+        {
+          "name": "Checkout",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-02-28T08:56:45Z",
+          "completed_at": "2026-02-28T08:57:01Z"
+        },
+        {
+          "name": "Try to exclude workspace from Windows Defender (best-effort)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-02-28T08:57:01Z",
+          "completed_at": "2026-02-28T08:57:07Z"
+        },
+        {
+          "name": "Download dist artifact (lint lane)",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 5,
+          "started_at": "2026-02-28T08:57:07Z",
+          "completed_at": "2026-02-28T08:57:07Z"
+        },
+        {
+          "name": "Verify dist artifact (lint lane)",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 6,
+          "started_at": "2026-02-28T08:57:07Z",
+          "completed_at": "2026-02-28T08:57:07Z"
+        },
+        {
+          "name": "Setup Node.js",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-02-28T08:57:07Z",
+          "completed_at": "2026-02-28T08:57:25Z"
+        },
+        {
+          "name": "Setup pnpm + cache store",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8,
+          "started_at": "2026-02-28T08:57:25Z",
+          "completed_at": "2026-02-28T08:59:08Z"
+        },
+        {
+          "name": "Runtime versions",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 9,
+          "started_at": "2026-02-28T08:59:08Z",
+          "completed_at": "2026-02-28T08:59:11Z"
+        },
+        {
+          "name": "Capture node path",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 10,
+          "started_at": "2026-02-28T08:59:11Z",
+          "completed_at": "2026-02-28T08:59:11Z"
+        },
+        {
+          "name": "Install dependencies",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 11,
+          "started_at": "2026-02-28T08:59:11Z",
+          "completed_at": "2026-02-28T09:00:50Z"
+        },
+        {
+          "name": "Configure test shard (Windows)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 12,
+          "started_at": "2026-02-28T09:00:50Z",
+          "completed_at": "2026-02-28T09:00:50Z"
+        },
+        {
+          "name": "Configure vitest JSON reports",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 13,
+          "started_at": "2026-02-28T09:00:50Z",
+          "completed_at": "2026-02-28T09:00:50Z"
+        },
+        {
+          "name": "Run test (node)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 14,
+          "started_at": "2026-02-28T09:00:50Z",
+          "completed_at": "2026-02-28T09:07:46Z"
+        },
+        {
+          "name": "Summarize slowest tests",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 15,
+          "started_at": "2026-02-28T09:07:46Z",
+          "completed_at": "2026-02-28T09:07:46Z"
+        },
+        {
+          "name": "Upload vitest reports",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 16,
+          "started_at": "2026-02-28T09:07:46Z",
+          "completed_at": "2026-02-28T09:07:48Z"
+        },
+        {
+          "name": "Post Setup pnpm + cache store",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 29,
+          "started_at": "2026-02-28T09:07:48Z",
+          "completed_at": "2026-02-28T09:07:57Z"
+        },
+        {
+          "name": "Post Setup Node.js",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 30,
+          "started_at": "2026-02-28T09:07:57Z",
+          "completed_at": "2026-02-28T09:07:57Z"
+        },
+        {
+          "name": "Post Checkout",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 31,
+          "started_at": "2026-02-28T09:07:57Z",
+          "completed_at": "2026-02-28T09:07:58Z"
+        },
+        {
+          "name": "Complete runner",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 32,
+          "started_at": "2026-02-28T09:07:58Z",
+          "completed_at": "2026-02-28T09:07:59Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 33,
+          "started_at": "2026-02-28T09:07:59Z",
+          "completed_at": "2026-02-28T09:07:59Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/openclaw/openclaw/check-runs/65237585491",
+      "labels": ["blacksmith-16vcpu-windows-2025"],
+      "runner_id": 751014,
+      "runner_name": "blacksmith-01kjhqbmn60jj9tk4zv39ysdye-16vcpu",
+      "runner_group_id": 3,
+      "runner_group_name": "blacksmith runners 01kehh8g695c1nehfqhfcdevv0"
+    },
+    {
+      "id": 65237585494,
+      "run_id": 22517536818,
+      "workflow_name": "CI",
+      "head_branch": "feature/aeon-memory-plugin",
+      "run_url": "https://api.github.com/repos/openclaw/openclaw/actions/runs/22517536818",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOQb6kR88AAAAPMHaOVg",
+      "head_sha": "33f12d27e790bfc031bb65d86938363f52e0aa8d",
+      "url": "https://api.github.com/repos/openclaw/openclaw/actions/jobs/65237585494",
+      "html_url": "https://github.com/openclaw/openclaw/actions/runs/22517536818/job/65237585494",
+      "status": "completed",
+      "conclusion": "failure",
+      "created_at": "2026-02-28T08:56:31Z",
+      "started_at": "2026-02-28T08:56:33Z",
+      "completed_at": "2026-02-28T09:05:38Z",
+      "name": "checks-windows (node, test, 2, 2, pnpm canvas:a2ui:bundle && pnpm test)",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-02-28T08:56:36Z",
+          "completed_at": "2026-02-28T08:56:43Z"
+        },
+        {
+          "name": "Set up runner",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-02-28T08:56:43Z",
+          "completed_at": "2026-02-28T08:56:47Z"
+        },
+        {
+          "name": "Checkout",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-02-28T08:56:47Z",
+          "completed_at": "2026-02-28T08:57:06Z"
+        },
+        {
+          "name": "Try to exclude workspace from Windows Defender (best-effort)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-02-28T08:57:06Z",
+          "completed_at": "2026-02-28T08:57:12Z"
+        },
+        {
+          "name": "Download dist artifact (lint lane)",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 5,
+          "started_at": "2026-02-28T08:57:12Z",
+          "completed_at": "2026-02-28T08:57:12Z"
+        },
+        {
+          "name": "Verify dist artifact (lint lane)",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 6,
+          "started_at": "2026-02-28T08:57:12Z",
+          "completed_at": "2026-02-28T08:57:12Z"
+        },
+        {
+          "name": "Setup Node.js",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-02-28T08:57:12Z",
+          "completed_at": "2026-02-28T08:57:35Z"
+        },
+        {
+          "name": "Setup pnpm + cache store",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8,
+          "started_at": "2026-02-28T08:57:35Z",
+          "completed_at": "2026-02-28T08:59:26Z"
+        },
+        {
+          "name": "Runtime versions",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 9,
+          "started_at": "2026-02-28T08:59:26Z",
+          "completed_at": "2026-02-28T08:59:27Z"
+        },
+        {
+          "name": "Capture node path",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 10,
+          "started_at": "2026-02-28T08:59:27Z",
+          "completed_at": "2026-02-28T08:59:27Z"
+        },
+        {
+          "name": "Install dependencies",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 11,
+          "started_at": "2026-02-28T08:59:27Z",
+          "completed_at": "2026-02-28T09:00:28Z"
+        },
+        {
+          "name": "Configure test shard (Windows)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 12,
+          "started_at": "2026-02-28T09:00:28Z",
+          "completed_at": "2026-02-28T09:00:28Z"
+        },
+        {
+          "name": "Configure vitest JSON reports",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 13,
+          "started_at": "2026-02-28T09:00:28Z",
+          "completed_at": "2026-02-28T09:00:28Z"
+        },
+        {
+          "name": "Run test (node)",
+          "status": "completed",
+          "conclusion": "failure",
+          "number": 14,
+          "started_at": "2026-02-28T09:00:28Z",
+          "completed_at": "2026-02-28T09:05:33Z"
+        },
+        {
+          "name": "Summarize slowest tests",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 15,
+          "started_at": "2026-02-28T09:05:33Z",
+          "completed_at": "2026-02-28T09:05:33Z"
+        },
+        {
+          "name": "Upload vitest reports",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 16,
+          "started_at": "2026-02-28T09:05:33Z",
+          "completed_at": "2026-02-28T09:05:33Z"
+        },
+        {
+          "name": "Post Setup pnpm + cache store",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 29,
+          "started_at": "2026-02-28T09:05:33Z",
+          "completed_at": "2026-02-28T09:05:33Z"
+        },
+        {
+          "name": "Post Setup Node.js",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 30,
+          "started_at": "2026-02-28T09:05:33Z",
+          "completed_at": "2026-02-28T09:05:33Z"
+        },
+        {
+          "name": "Post Checkout",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 31,
+          "started_at": "2026-02-28T09:05:33Z",
+          "completed_at": "2026-02-28T09:05:35Z"
+        },
+        {
+          "name": "Complete runner",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 32,
+          "started_at": "2026-02-28T09:05:35Z",
+          "completed_at": "2026-02-28T09:05:36Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 33,
+          "started_at": "2026-02-28T09:05:36Z",
+          "completed_at": "2026-02-28T09:05:36Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/openclaw/openclaw/check-runs/65237585494",
+      "labels": ["blacksmith-16vcpu-windows-2025"],
+      "runner_id": 751016,
+      "runner_name": "blacksmith-01kjhqbms11crpaqpwk4hzh4b9-16vcpu",
+      "runner_group_id": 3,
+      "runner_group_name": "blacksmith runners 01kehh8g695c1nehfqhfcdevv0"
+    },
+    {
+      "id": 65237585594,
+      "run_id": 22517536818,
+      "workflow_name": "CI",
+      "head_branch": "feature/aeon-memory-plugin",
+      "run_url": "https://api.github.com/repos/openclaw/openclaw/actions/runs/22517536818",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOQb6kR88AAAAPMHaOug",
+      "head_sha": "33f12d27e790bfc031bb65d86938363f52e0aa8d",
+      "url": "https://api.github.com/repos/openclaw/openclaw/actions/jobs/65237585594",
+      "html_url": "https://github.com/openclaw/openclaw/actions/runs/22517536818/job/65237585594",
+      "status": "completed",
+      "conclusion": "skipped",
+      "created_at": "2026-02-28T08:56:31Z",
+      "started_at": "2026-02-28T08:56:31Z",
+      "completed_at": "2026-02-28T08:56:31Z",
+      "name": "release-check",
+      "steps": [],
+      "check_run_url": "https://api.github.com/repos/openclaw/openclaw/check-runs/65237585594",
+      "labels": ["blacksmith-16vcpu-ubuntu-2404"],
+      "runner_id": null,
+      "runner_name": null,
+      "runner_group_id": null,
+      "runner_group_name": null
+    }
+  ]
+}

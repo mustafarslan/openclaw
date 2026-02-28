@@ -16,10 +16,7 @@
 
 import fs from "node:fs";
 import path from "node:path";
-
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-let AeonMemoryPlugin: any = null;
-let aeonLoadAttempted = false;
+import { getAeonPlugin, loadAeonMemoryAsync } from "../../utils/aeon-loader.js";
 
 /**
  * Materialize Aeon WAL data into a Pi-compatible JSONL session file.
@@ -35,20 +32,9 @@ export async function aeonCheckpointSessionFile(params: {
   sessionId: string;
   cwd: string;
 }): Promise<void> {
-  if (!aeonLoadAttempted) {
-    aeonLoadAttempted = true;
-    try {
-      // @ts-ignore: Optional dependency
-      const m = await import("aeon-memory");
-      AeonMemoryPlugin = m.AeonMemory;
-    } catch (e: unknown) {
-      const code = e instanceof Error ? (e as NodeJS.ErrnoException).code : undefined;
-      if (code !== "ERR_MODULE_NOT_FOUND" && code !== "MODULE_NOT_FOUND") {
-        console.error("🚨 [AeonMemory] Load failed:", e);
-      }
-    }
-  }
+  await loadAeonMemoryAsync();
 
+  const AeonMemoryPlugin = getAeonPlugin();
   if (!AeonMemoryPlugin) {
     return;
   }

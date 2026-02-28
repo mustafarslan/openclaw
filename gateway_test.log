@@ -938,3 +938,5 @@
 [90m2026-02-28T08:52:01.142Z[39m [36m[ws][39m [36mwebchat connected conn=bd70bc7f-ffd1-429a-adbb-c10c8d07d9cd remote=::1 client=Aeon E2E Test Client webchat v1.0.0[39m
 2026-02-28T11:52:01.402+03:00 [AeonMemory] Semantic filter: 21 -> 8 tools
 [90m2026-02-28T08:52:02.307Z[39m [36m[ws][39m [36mwebchat disconnected code=1000 reason=e2e-amnesia conn=bd70bc7f-ffd1-429a-adbb-c10c8d07d9cd[39m
+[90m2026-02-28T09:22:38.027Z[39m [36m[ws][39m [33munauthorized conn=d0ea3299-9a7e-42e4-833d-a6dab05fb3fd remote=127.0.0.1 client=gateway-client backend vdev reason=token_mismatch[39m
+[90m2026-02-28T09:22:38.029Z[39m [36m[ws][39m [33mclosed before connect conn=d0ea3299-9a7e-42e4-833d-a6dab05fb3fd remote=127.0.0.1 fwd=n/a origin=n/a host=127.0.0.1:18789 ua=n/a code=1008 reason=connect failed[39m
