@@ -6,17 +6,24 @@ import type {
 } from "../plugins/types.js";
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 let AeonMemoryPlugin: any = null;
-// @ts-ignore: Optional dependency for ultra-low-latency memory
-import("aeon-memory")
-  .then((m) => {
-    AeonMemoryPlugin = m.AeonMemory;
-  })
-  .catch((e: unknown) => {
-    const code = e instanceof Error ? (e as NodeJS.ErrnoException).code : undefined;
-    if (code !== "ERR_MODULE_NOT_FOUND" && code !== "MODULE_NOT_FOUND") {
-      console.error("🚨 [AeonMemory] Load failed:", e);
-    }
-  });
+let aeonLoadAttempted = false;
+
+function ensureAeonLoading() {
+  if (!aeonLoadAttempted) {
+    aeonLoadAttempted = true;
+    // @ts-ignore: Optional dependency for ultra-low-latency memory
+    import("aeon-memory")
+      .then((m) => {
+        AeonMemoryPlugin = m.AeonMemory;
+      })
+      .catch((e: unknown) => {
+        const code = e instanceof Error ? (e as NodeJS.ErrnoException).code : undefined;
+        if (code !== "ERR_MODULE_NOT_FOUND" && code !== "MODULE_NOT_FOUND") {
+          console.error("🚨 [AeonMemory] Load failed:", e);
+        }
+      });
+  }
+}
 import { emitSessionTranscriptUpdate } from "../sessions/transcript-events.js";
 import {
   HARD_MAX_TOOL_RESULT_CHARS,
@@ -82,6 +89,8 @@ export function installSessionToolResultGuard(
   flushPendingToolResults: () => void;
   getPendingIds: () => string[];
 } {
+  ensureAeonLoading();
+
   const originalAppend = sessionManager.appendMessage.bind(sessionManager);
   const pending = new Map<string, string | undefined>();
   const persistMessage = (message: AgentMessage) => {

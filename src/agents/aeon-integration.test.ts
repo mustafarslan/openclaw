@@ -270,6 +270,8 @@ describe("aeon-memory integration — readSessionMessages", () => {
 
     const { readSessionMessages } = await import("../gateway/session-utils.fs.js");
 
+    // Warm up the async lazy loader
+    readSessionMessages("dummy", undefined);
     await new Promise((r) => setTimeout(r, 50));
 
     const messages = readSessionMessages("empty-aeon-session", undefined);
@@ -296,6 +298,8 @@ describe("aeon-memory integration — readSessionMessages", () => {
 
     const { readSessionMessages } = await import("../gateway/session-utils.fs.js");
 
+    // Warm up the async lazy loader
+    readSessionMessages("dummy", undefined);
     await new Promise((r) => setTimeout(r, 50));
 
     const messages = readSessionMessages("aeon-session-123", undefined);
