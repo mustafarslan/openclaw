@@ -15,8 +15,9 @@ import("aeon-memory")
     }
   });
 import { emitSessionTranscriptUpdate } from "../../sessions/transcript-events.js";
-import { resolveDefaultSessionStorePath, resolveSessionFilePath } from "./paths.js";
-import { loadSessionStore, updateSessionStore } from "./store.js";
+import { resolveDefaultSessionStorePath } from "./paths.js";
+import { resolveAndPersistSessionFile } from "./session-file.js";
+import { loadSessionStore } from "./store.js";
 import type { SessionEntry } from "./types.js";
 
 function stripQuery(value: string): string {
@@ -121,10 +122,16 @@ export async function appendAssistantMessageToSessionTranscript(params: {
 
   let sessionFile: string;
   try {
-    sessionFile = resolveSessionFilePath(entry.sessionId, entry, {
+    const resolvedSessionFile = await resolveAndPersistSessionFile({
+      sessionId: entry.sessionId,
+      sessionKey,
+      sessionStore: store,
+      storePath,
+      sessionEntry: entry,
       agentId: params.agentId,
       sessionsDir: path.dirname(storePath),
     });
+    sessionFile = resolvedSessionFile.sessionFile;
   } catch (err) {
     return {
       ok: false,
@@ -169,19 +176,6 @@ export async function appendAssistantMessageToSessionTranscript(params: {
     }
   } else {
     sessionManager.appendMessage(mirrorMessage);
-  }
-
-  if (!entry.sessionFile || entry.sessionFile !== sessionFile) {
-    await updateSessionStore(
-      storePath,
-      (current) => {
-        current[sessionKey] = {
-          ...entry,
-          sessionFile,
-        };
-      },
-      { activeSessionKey: sessionKey },
-    );
   }
 
   emitSessionTranscriptUpdate(sessionFile);
